@@ -4,8 +4,8 @@
 // A 90-100, B 80-89, C 70-79, D 60-69, F 0-59
 
 function returnGrade(score=0, total=100){
-    let grade
-    let percent = (score / total)*100
+    let grade = ''
+    const percent = (score / total)*100
 if(percent>=90)
     grade = 'A'
 else if(percent>=80 && percent <90)
