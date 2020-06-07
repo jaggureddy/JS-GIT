@@ -42,32 +42,38 @@
 const todo = [
     {
         item: 'Python',
-        completed : '50%'
+        completed : false//50
     },
 
     {
         item: 'JavaScript',
-        completed : '5%'
+        completed : false //5
     },
 
     {
         item: 'EggPlant',
-        completed : '1%'
+        completed : false//1
     },
 
     {
         item: 'CypressIO',
-        completed : '5%'
+        completed : false//5
+    },
+
+    
+    {
+        item: 'Selenium',
+        completed : true//5
     },
 
     {
         item: 'PostMan',
-        completed : '15%'
+        completed : false//15
     },
     
     {
         item: 'Java',
-        completed : '75%'
+        completed : true
 
     }
 ]
@@ -89,6 +95,36 @@ function deleteToDo(todos, text){
 
 }
 
-deleteToDo(todo, 'Java')
+// deleteToDo(todo, 'Java')
 
-console.log(todo);
+// console.log(todo);
+
+
+function filterTodo(todos, percent){
+    return todos.filter(function(todo, index){
+        return todo.completed >= percent 
+    })
+}
+
+function filterTodo(todos){
+    return todos.filter(function(todo, index){
+        return !todo.completed 
+    })
+}
+
+
+// console.log(filterTodo(todo, 5));
+// console.log(filterTodo(todo));
+
+function sortTodo(todos){
+    return todos.sort(function(todo1, todo2){
+        if(!todo1.completed && todo2.completed)
+            return -1
+        else if(todo1.completed && !todo2.completed) 
+            return 1
+        else 
+            return 0
+    })
+}
+
+console.log(sortTodo(todo));

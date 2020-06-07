@@ -46,12 +46,12 @@ notes.splice(1,1,'Replace splice Note 2')
 
 notes_objects = [
     {
-        title: 'Title 1',
-        note : 'Note 1'
-    },
-    {
         title: 'Title 2',
         note : 'Note 2'
+    },
+    {
+        title: 'Title 1',
+        note : 'Note 1'
     },
     {
         title: 'Title 3',
@@ -79,5 +79,31 @@ const findNote1 = function(notes, noteTitle){
     })
 }
 
-console.log(findNote(notes_objects, 'Title 3'));
-console.log(findNote1(notes_objects, 'Title 1'));
+// console.log(findNote(notes_objects, 'Title 3'));
+// console.log(findNote1(notes_objects, 'Title 1'));
+
+
+const n = function(notes, text){
+return notes.filter(function(note, index){
+    const tit = note.title.toLowerCase().includes(text.toLowerCase())
+    return tit
+})
+}
+
+
+console.log(n(notes_objects,'Title 1'));
+
+
+const sortNotes = function(notes){
+    return notes.sort(function(note1, note2){
+        if(note1.title.toLowerCase() < note2.title.toLowerCase())
+            return -1
+        else if(note1.title.toLowerCase() > note2.title.toLowerCase())
+            return 1
+        else
+            return 0
+    })
+}
+
+
+console.log(sortNotes(notes_objects));
